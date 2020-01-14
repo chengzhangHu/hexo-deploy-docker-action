@@ -1,0 +1,9 @@
+name: 'hexo-deploy-docker-action'
+description: 'deploy static hexo blog with cname and theme support'
+author: 'chengzhangHu'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'git-commit'
+  color: 'orange'
