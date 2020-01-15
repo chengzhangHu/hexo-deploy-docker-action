@@ -46,6 +46,9 @@ echo "Deploy to ${PRO_REPOSITORY}"
 # Directs the action to the the Github workspace.
 cd $GITHUB_WORKSPACE 
 
+echo "echo init file list..."
+for i in $(ls) ; do  echo $i ; done
+
 echo "run npm install ..." 
 npm install
 
@@ -60,6 +63,9 @@ if [ -n "${THEME_REPOSITORY}" ]; then
     echo "git clone themes repository..."
     git clone ${HEME_REPOSITORY} themes
 fi
+
+echo "echo list after git clone themes ..."
+for i in $(ls) ; do  echo $i ; done
 
 echo "run hexo clean ..."
 npx hexo clean
