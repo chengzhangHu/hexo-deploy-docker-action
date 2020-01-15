@@ -53,7 +53,7 @@ npm install
 if [ -n "${THEME_BRANCH}" ]; then
     THEME_REPOSITORY=${THEME_BRANCH}
 else
-    THEME_REPOSITORY="master"
+    THEME_REPOSITORY="dev"
 fi
 
 if [ -n "${THEME_REPOSITORY}" ]; then
