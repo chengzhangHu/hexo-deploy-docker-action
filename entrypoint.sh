@@ -58,7 +58,7 @@ fi
 
 if [ -n "${THEME_REPOSITORY}" ]; then
     echo "git clone themes repository..."
-    git clone -b ${THEME_BRANCH} ${THEME_REPOSITORY} themes
+    git clone ${HEME_REPOSITORY}@${THEME_BRANCH} themes
 fi
 
 echo "run hexo clean ..."
