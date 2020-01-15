@@ -25,7 +25,7 @@ jobs:
         CNAME: blog.github.com # optional
         PERSONAL_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         PUBLISH_REPOSITORY: chengzhangHu/chengzhangHu.github.io # The repository the action should deploy to.
-        BRANCH: master  # The branch the action should deploy to.
+        BRANCH: dev  # The branch the action should deploy to.
         PUBLISH_DIR: ./public # The folder the action should deploy.
         THEME_BRANCH: dev # The theme branch to clone 
         THEME_REPOSITORY: chengzhangHu/hexo-theme-vexo
