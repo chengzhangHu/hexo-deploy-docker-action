@@ -54,24 +54,11 @@ echo "run npm install ..."
 npm install
 
 
-if [ -n "${THEME_BRANCH}" ]; then
-    THEME_REPOSITORY=${THEME_BRANCH}
-else
-    THEME_REPOSITORY="dev"
-fi
-
-if [ -n "${THEME_REPOSITORY}" ]; then
-    echo "git clone themes repository..."
-    rm -rf ./themes/*
-    git clone "${HEME_REPOSITORY}" themes
-fi
-
 echo "echo list after git clone themes ..."
 for i in $(ls) ; do  echo $i ; done
 
 echo "run hexo clean ..."
 npx hexo clean
-
 
 echo "run hexo generate file ..."
 npx hexo g
