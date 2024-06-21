@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2.0.0
+      uses: actions/checkout@v4
 
     - name: Build and Deploy
       uses: chengzhangHu/hexo-deploy-docker-action-with-theme@master
