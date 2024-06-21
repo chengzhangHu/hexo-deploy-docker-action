@@ -37,7 +37,7 @@ if you want to make the workflow only triggers on push events to specific branch
 on:
   push:	
     branches:	
-      - master
+      - main
 ```
 
 ## Configuration
