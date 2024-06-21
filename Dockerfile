@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM node:10
+FROM node:20
 
 LABEL "com.github.actions.name"="Hexo deploy with cname and theme support"
 LABEL "com.github.actions.description"="This GitHub action will handle the building and deploying process of hexo project."
