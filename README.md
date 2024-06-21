@@ -23,7 +23,7 @@ jobs:
         USER_NAME: chengzhangHu # optional
         EMAIL: cheonghu2019@gmail.com # optional
         CNAME: blog.github.com # optional
-        PERSONAL_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PUBLISH_REPOSITORY: chengzhangHu/chengzhangHu.github.io # The repository the action should deploy to.
         BRANCH: dev  # The branch the action should deploy to.
         PUBLISH_DIR: ./public # The folder the action should deploy.
