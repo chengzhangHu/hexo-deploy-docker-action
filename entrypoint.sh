@@ -51,8 +51,9 @@ for i in $(ls) ; do  echo $i ; done
 
 
 echo "run npm install ..." 
-npm ci
-
+npm i -g yarn 
+# npm ci
+yarn 
 
 echo "echo list after git clone themes ..."
 for i in $(ls) ; do  echo $i ; done
