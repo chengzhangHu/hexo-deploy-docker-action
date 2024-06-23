@@ -53,7 +53,7 @@ echo "2.show the file list..."
 for i in $(ls) ; do  echo $i ; done
 
 echo "3.run npm install with ci..." 
-npm ci --force
+npm i --force
 
 echo "4.echo list after git clone themes ..."
 for i in $(ls) ; do  echo $i ; done
