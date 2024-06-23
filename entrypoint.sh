@@ -46,15 +46,6 @@ echo "Deploy to ${PRO_REPOSITORY}"
 # Directs the action to the the Github workspace.
 cd $GITHUB_WORKSPACE 
 
-echo "0.run git config..."${GITHUB_WORKSPACE},${BRANCH}""
-# Configures Git.
-git init
-git config user.name "${PUBLISH_USER_NAME}"
-git config user.email "${PUBLISH_EMAIL}"
-git remote add origin "${REPOSITORY_PATH}"
-
-git checkout --orphan $BRANCH
-
 echo "1.clean npm cache with --force ..."
 npm cache clean --force
 
@@ -62,7 +53,7 @@ echo "2.show the file list..."
 for i in $(ls) ; do  echo $i ; done
 
 echo "3.run npm install with ci..." 
-npm ci
+npm ci --force
 
 echo "4.echo list after git clone themes ..."
 for i in $(ls) ; do  echo $i ; done
@@ -78,6 +69,15 @@ echo "7.copy CNAME if exists"
 if [ -n "${CNAME}" ]; then
     echo ${CNAME} > CNAME
 fi
+
+echo "0.run git config..."${GITHUB_WORKSPACE},${BRANCH}""
+# Configures Git.
+git init
+git config user.name "${PUBLISH_USER_NAME}"
+git config user.email "${PUBLISH_EMAIL}"
+git remote add origin "${REPOSITORY_PATH}"
+
+git checkout --orphan $BRANCH
 
 git add --all
 
