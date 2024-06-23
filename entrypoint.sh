@@ -46,31 +46,25 @@ echo "Deploy to ${PRO_REPOSITORY}"
 # Directs the action to the the Github workspace.
 cd $GITHUB_WORKSPACE 
 
-echo "1.clean npm cache with --force ..."
-npm cache clean --force
-
-echo "2.show the file list..."
+echo "1.show the file list..."
 for i in $(ls) ; do  echo $i ; done
 
-echo "3.run npm install with --force..." 
-npm i --force
+echo "2.run yarn install..." 
+yarn 
 
-echo "4.echo list after git clone themes ..."
-for i in $(ls) ; do  echo $i ; done
-
-echo "5.run hexo clean ..."
+echo "3.run hexo clean ..."
 npx hexo clean
 
-echo "6.run hexo generate file ..."
+echo "4.run hexo generate file ..."
 npx hexo g
 
 cd $PUBLISH_DIR
-echo "7.copy CNAME if exists"
+echo "5.copy CNAME if exists"
 if [ -n "${CNAME}" ]; then
     echo ${CNAME} > CNAME
 fi
 
-echo "0.run git config..."${GITHUB_WORKSPACE},${BRANCH}""
+echo "6.run git config..."${GITHUB_WORKSPACE},${BRANCH}""
 # Configures Git.
 git init
 git config user.name "${PUBLISH_USER_NAME}"
