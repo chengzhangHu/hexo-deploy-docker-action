@@ -51,7 +51,7 @@ for i in $(ls) ; do  echo $i ; done
 
 
 echo "run npm install ..." 
-npm install
+npm ci
 
 
 echo "echo list after git clone themes ..."
