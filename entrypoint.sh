@@ -46,29 +46,7 @@ echo "Deploy to ${PRO_REPOSITORY}"
 # Directs the action to the the Github workspace.
 cd $GITHUB_WORKSPACE 
 
-echo "echo init file list..."
-for i in $(ls) ; do  echo $i ; done
-
-
-echo "run npm install with ci..." 
-npm ci
-
-echo "echo list after git clone themes ..."
-for i in $(ls) ; do  echo $i ; done
-
-echo "run hexo clean ..."
-npx hexo clean
-
-echo "run hexo generate file ..."
-npx hexo g
-
-cd $PUBLISH_DIR
-echo "copy CNAME if exists"
-if [ -n "${CNAME}" ]; then
-    echo ${CNAME} > CNAME
-fi
-echo "run git config..."
-
+echo "0.run git config..."${GITHUB_WORKSPACE},${BRANCH}""
 # Configures Git.
 git init
 git config user.name "${PUBLISH_USER_NAME}"
@@ -76,6 +54,30 @@ git config user.email "${PUBLISH_EMAIL}"
 git remote add origin "${REPOSITORY_PATH}"
 
 git checkout --orphan $BRANCH
+
+echo "1.clean npm cache with --force ..."
+npm cache clean --force
+
+echo "2.show the file list..."
+for i in $(ls) ; do  echo $i ; done
+
+echo "3.run npm install with ci..." 
+npm ci
+
+echo "4.echo list after git clone themes ..."
+for i in $(ls) ; do  echo $i ; done
+
+echo "5.run hexo clean ..."
+npx hexo clean
+
+echo "6.run hexo generate file ..."
+npx hexo g
+
+cd $PUBLISH_DIR
+echo "7.copy CNAME if exists"
+if [ -n "${CNAME}" ]; then
+    echo ${CNAME} > CNAME
+fi
 
 git add --all
 
