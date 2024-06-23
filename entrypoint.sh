@@ -50,10 +50,8 @@ echo "echo init file list..."
 for i in $(ls) ; do  echo $i ; done
 
 
-echo "run npm install ..." 
-npm i -g yarn 
-# npm ci
-yarn 
+echo "run npm install with ci..." 
+npm ci
 
 echo "echo list after git clone themes ..."
 for i in $(ls) ; do  echo $i ; done
